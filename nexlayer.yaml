@@ -6,9 +6,19 @@ application:
     path: /
     servicePorts:
     - 2022
-    vars:
-      ILLA_APP_ENV: production
     volumes:
-    - name: illa-database
+    - name: illa-data
       mountPath: /opt/illa/database
+      size: 5Gi
+  - name: postgres
+    image: mirror.gcr.io/library/postgres:16-alpine
+    servicePorts:
+    - 5432
+    vars:
+      POSTGRES_DB: illa
+      POSTGRES_USER: illa
+      POSTGRES_PASSWORD: illa
+    volumes:
+    - name: illa-db
+      mountPath: /var/lib/postgresql/data
       size: 5Gi

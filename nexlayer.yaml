@@ -2,7 +2,7 @@ application:
   name: illa-builder
   pods:
   - name: app
-    image: illacloud/illa-builder:latest
+    image: mirror.gcr.io/illacloud/illa-builder:latest
     path: /
     servicePorts:
     - 2022
@@ -17,7 +17,7 @@ application:
       mountPath: /opt/illa/data
       size: 5Gi
   - name: postgres
-    image: postgres:16-alpine
+    image: mirror.gcr.io/library/postgres:16-alpine
     servicePorts:
     - 5432
     vars:

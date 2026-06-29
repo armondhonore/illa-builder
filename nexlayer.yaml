@@ -2,7 +2,7 @@ application:
   name: illa-builder
   pods:
   - name: app
-    image: mirror.gcr.io/illacloud/illa-builder:latest
+    image: mirror.gcr.io/illasoft/illa-builder:v4.8.5
     path: /
     servicePorts:
     - 2022

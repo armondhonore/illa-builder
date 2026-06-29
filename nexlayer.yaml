@@ -2,29 +2,14 @@ application:
   name: illa-builder
   pods:
   - name: app
-    image: mirror.gcr.io/illacloud/illa-builder:latest
+    image: illacloud/illa-builder:latest
     path: /
     servicePorts:
     - 2022
-    vars:
-      PG_HOST: postgres.pod
-      PG_PORT: "5432"
-      PG_USER: illa
-      PG_PASSWORD: illa
-      PG_DB: illa
     volumes:
-    - name: illa-data
-      mountPath: /opt/illa/data
+    - name: illa-database
+      mountPath: /opt/illa/database
       size: 5Gi
-  - name: postgres
-    image: mirror.gcr.io/library/postgres:16-alpine
-    servicePorts:
-    - 5432
-    vars:
-      POSTGRES_DB: illa
-      POSTGRES_USER: illa
-      POSTGRES_PASSWORD: illa
-    volumes:
-    - name: illa-db
-      mountPath: /var/lib/postgresql/data
+    - name: illa-drive
+      mountPath: /opt/illa/drive
       size: 5Gi

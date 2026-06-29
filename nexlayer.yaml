@@ -6,10 +6,9 @@ application:
     path: /
     servicePorts:
     - 2022
+    vars:
+      ILLA_APP_ENV: production
     volumes:
     - name: illa-database
       mountPath: /opt/illa/database
-      size: 5Gi
-    - name: illa-drive
-      mountPath: /opt/illa/drive
       size: 5Gi
